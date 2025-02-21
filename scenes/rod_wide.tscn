@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkjnn5v1pm7j5"]
+
+[sub_resource type="Shader" id="Shader_d6bef"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec3 maincolor: source_color;
+uniform vec3 emissioncolor: source_color;
+uniform float emissionenergy;
+
+void fragment() {
+	EMISSION = emissioncolor * emissionenergy;
+	ALBEDO = maincolor;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fb503"]
+render_priority = 0
+shader = SubResource("Shader_d6bef")
+shader_parameter/maincolor = Color(1, 0.905079, 0.192026, 1)
+shader_parameter/emissioncolor = Color(0.29219, 0.29219, 0.29219, 1)
+shader_parameter/emissionenergy = 36.165
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oabmw"]
+material = SubResource("ShaderMaterial_fb503")
+
+[sub_resource type="GDScript" id="GDScript_3klt0"]
+script/source = "extends MeshInstance3D
+
+@export var width: float = 0.5
+@export var length: float = 5.0
+@export var maincolor: Vector3 = Vector3(1.0,0.75,0.75)
+@export var lightcolor: Vector3 = Vector3(0.0,1.0,1.0)
+@export var lightintensity: float = 0.0
+
+func updatemeshandpos() -> void:
+	mesh.set(\"top_radius\",width*0.5)
+	mesh.set(\"bottom_radius\",width*0.5)
+	
+func updateshader() -> void:
+	var activematerial: Material = get_active_material(0)
+	activematerial.set_shader_parameter(\"maincolor\",maincolor)
+	activematerial.set_shader_parameter(\"emissioncolor\",lightcolor)
+	activematerial.set_shader_parameter(\"emissionenergy\",lightintensity)
+
+func _ready() -> void:
+	var newmesh: Mesh = mesh.duplicate()
+	mesh = newmesh;
+	var activematerial: Material = get_active_material(0)
+	var newmaterial: Material = activematerial.duplicate()
+	mesh.surface_set_material(0,newmaterial)
+	updateshader()
+	updatemeshandpos()
+	
+func _process(_delta: float) -> void:
+	updatemeshandpos()
+	updateshader()
+"
+
+[node name="RodWide" type="MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_oabmw")
+script = SubResource("GDScript_3klt0")
+lightintensity = 1.405

@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv0icvxmkc7jm"]
+
+[ext_resource type="PackedScene" uid="uid://byboitm7hn6nb" path="res://scenes/cylinder.tscn" id="1_83rdi"]
+[ext_resource type="PackedScene" uid="uid://go24g30mqwy7" path="res://structures/sidepanels.blend" id="2_leb3k"]
+[ext_resource type="PackedScene" uid="uid://beakynchoo5is" path="res://structures/opening.blend" id="3_7j8g8"]
+[ext_resource type="Shader" path="res://shaders/entrence_black.gdshader" id="4_myohm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38nvv"]
+render_priority = 0
+shader = ExtResource("4_myohm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_8bubq"]
+material = SubResource("ShaderMaterial_38nvv")
+size = Vector2(2.805, 3.915)
+orientation = 0
+
+[node name="Lane" type="Node3D"]
+
+[node name="Cylinders" type="Node3D" parent="."]
+
+[node name="Cylinder" parent="Cylinders" instance=ExtResource("1_83rdi")]
+
+[node name="Cylinder2" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415396, 0, 0)
+
+[node name="Cylinder3" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81565, 0, 0)
+
+[node name="Cylinder" parent="Cylinders/Cylinder3" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.039, 0, 0)
+
+[node name="Cylinder2" parent="Cylinders/Cylinder3" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6236, 0, 0)
+
+[node name="Cylinder3" parent="Cylinders/Cylinder3" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22335, 0, 0)
+
+[node name="Cylinder4" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23105, 0, 0)
+
+[node name="Cylinder5" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65427, 0, 0)
+
+[node name="Cylinder6" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06967, 0, 0)
+
+[node name="Cylinder7" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46992, 0, 0)
+
+[node name="Cylinder8" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88532, 0, 0)
+
+[node name="Cylinder9" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31046, 0, 0)
+
+[node name="Cylinder10" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72586, 0, 0)
+
+[node name="Cylinder11" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12611, 0, 0)
+
+[node name="Cylinder12" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54151, 0, 0)
+
+[node name="Cylinder13" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96473, 0, 0)
+
+[node name="Cylinder14" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38013, 0, 0)
+
+[node name="Cylinder15" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78038, 0, 0)
+
+[node name="Cylinder16" parent="Cylinders" instance=ExtResource("1_83rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.19578, 0, 0)
+
+[node name="LeftSidePanels" type="Node3D" parent="."]
+
+[node name="sidepanels" parent="LeftSidePanels" instance=ExtResource("2_leb3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.372, -2.442)
+
+[node name="sidepanels2" parent="LeftSidePanels" instance=ExtResource("2_leb3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.372, -2.442)
+
+[node name="sidepanels3" parent="LeftSidePanels" instance=ExtResource("2_leb3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.372, -2.442)
+
+[node name="sidepanels4" parent="LeftSidePanels" instance=ExtResource("2_leb3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.372, -2.442)
+
+[node name="RightSidePanels" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.96, 0, 0)
+
+[node name="sidepanels" parent="RightSidePanels" instance=ExtResource("2_leb3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.372, -2.442)
+
+[node name="sidepanels2" parent="RightSidePanels" instance=ExtResource("2_leb3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.372, -2.442)
+
+[node name="sidepanels3" parent="RightSidePanels" instance=ExtResource("2_leb3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.372, -2.442)
+
+[node name="sidepanels4" parent="RightSidePanels" instance=ExtResource("2_leb3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.372, -2.442)
+
+[node name="Opening" type="Node3D" parent="."]
+
+[node name="opening" parent="Opening" instance=ExtResource("3_7j8g8")]
+transform = Transform3D(-1.17365e-07, 0, -2.685, 0, 2.685, 0, 2.685, 0, -1.17365e-07, 0.218, 1.928, 0)
+
+[node name="OpeningCover" type="MeshInstance3D" parent="Opening"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.825779, 1.24229, 0)
+mesh = SubResource("QuadMesh_8bubq")
+skeleton = NodePath("../..")
