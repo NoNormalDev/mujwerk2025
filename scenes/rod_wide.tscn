@@ -36,6 +36,7 @@ script/source = "extends MeshInstance3D
 func updatemeshandpos() -> void:
 	mesh.set(\"top_radius\",width*0.5)
 	mesh.set(\"bottom_radius\",width*0.5)
+	mesh.set(\"height\",length)
 	
 func updateshader() -> void:
 	var activematerial: Material = get_active_material(0)
@@ -44,11 +45,6 @@ func updateshader() -> void:
 	activematerial.set_shader_parameter(\"emissionenergy\",lightintensity)
 
 func _ready() -> void:
-	var newmesh: Mesh = mesh.duplicate()
-	mesh = newmesh;
-	var activematerial: Material = get_active_material(0)
-	var newmaterial: Material = activematerial.duplicate()
-	mesh.surface_set_material(0,newmaterial)
 	updateshader()
 	updatemeshandpos()
 	

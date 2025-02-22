@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvjd6faoa3v8w"]
+[gd_scene load_steps=9 format=3 uid="uid://dvjd6faoa3v8w"]
 
 [ext_resource type="Texture2D" uid="uid://701srfe0th0t" path="res://downloaded/background/wildflower_field_2k.hdr" id="1_svlxj"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_ege5b"]
 [ext_resource type="PackedScene" uid="uid://dv0icvxmkc7jm" path="res://scenes/lane.tscn" id="3_jaq6e"]
 [ext_resource type="PackedScene" uid="uid://dhmgpemo68tnf" path="res://structures/floor.blend" id="4_yvsuj"]
+[ext_resource type="PackedScene" uid="uid://dkjnn5v1pm7j5" path="res://scenes/rod_wide.tscn" id="5_ijets"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jt40t"]
 panorama = ExtResource("1_svlxj")
@@ -15,10 +16,12 @@ sky_material = SubResource("PanoramaSkyMaterial_jt40t")
 background_mode = 2
 sky = SubResource("Sky_iggyv")
 tonemap_mode = 2
+tonemap_white = 2.6
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
 fog_sky_affect = 0.18
+volumetric_fog_density = 0.0
 adjustment_enabled = true
 adjustment_brightness = 0.92
 adjustment_contrast = 1.08
@@ -38,6 +41,17 @@ transform = Transform3D(1, 0, 0, 0, 0.920505, 0.390731, 0, -0.390731, 0.920505, 
 script = ExtResource("2_ege5b")
 
 [node name="Lane" parent="." instance=ExtResource("3_jaq6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.22323)
 
 [node name="floor" parent="." instance=ExtResource("4_yvsuj")]
 transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -5.36607, -0.354551, 2.04004)
+
+[node name="Lane2" parent="." instance=ExtResource("3_jaq6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.258)
+
+[node name="RodWide" parent="." instance=ExtResource("5_ijets")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2.47709, 0.575269, 10.5153)
+visible = false
+length = 22.005
+lightcolor = Vector3(1, 0, 0)
+lightintensity = 10.3

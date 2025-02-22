@@ -3,7 +3,7 @@ extends Node3D
 var rodanimation: float = 0.0
 
 func updaterod() -> void:
-	
+	pass
 
 func _ready() -> void:
 	pass # Replace with function body.
