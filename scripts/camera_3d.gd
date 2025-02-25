@@ -22,10 +22,10 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			fov *= 0.975
-			fov = max(30.0,fov)
+			fov = max(10.0,fov)
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			fov *= 1.02
-			fov = min(140.0,fov)
+			fov = min(160.0,fov)
 		if event.button_index == MOUSE_BUTTON_MIDDLE:
 			fov = 75.0
 
